@@ -1,0 +1,49 @@
+<!--
+<p>calculator works!</p>
+-->
+<!--addPortionForm.value-->
+<!-- <form [formGroup]="addPortionForm" (ngSubmit)="onSubmite(aliment, weightP)"></form> -->
+<!--<form [formGroup]="addPortionForm" (ngSubmit)="onSubmite(addPortionForm.value)"></form> -->
+
+<!-- <form [formGroup]="addPortionForm" (ngSubmit)="onSubmite(name)"></form> -->
+<!--[ngValue]="aliment" -->
+
+<form [formGroup]="addPortionForm" (ngSubmit)="onSubmite(addPortionForm.value)">
+
+        <label>Aliment</label>
+
+        <select formControlName="nameP" >
+          <option  [ngValue]="aliment" *ngFor="let aliment of alimentList">{{aliment.name}}</option>
+        </select>
+
+        <div class="elt-portion">
+            <label for="weightP">Portion (g)</label>
+            <input id="weightP" type="number"  formControlName="weightP">
+        </div>
+
+        <button class="button" type="submit">Ajouter</button>
+
+</form>
+
+<label>Charge totale: </label>
+<output>{{portionTotal}}</output>
+
+
+<table>
+  <tr>
+      <th>Nom de l'aliment</th>
+      <th>Index glycémique</th>
+      <th>Proportion de glucides(g)</th>
+      <th>Charge glycémique calculée</th>
+      <th>Supprimer</th>
+  </tr>
+
+  <tr *ngFor="let portion of portionList; index as j">
+      <td>{{portion.name}}</td>
+      <td>{{portion.ig}}</td>
+      <td>{{portion.carbs}}</td>
+      <td>{{portion.cg}}</td>
+      <td><button (click)="deletePortion(j)">Supprimer</button></td>
+  </tr>
+</table>
+

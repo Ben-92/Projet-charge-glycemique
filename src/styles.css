@@ -1,0 +1,113 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*************************top bar ************************/
+
+app-top-bar h1 {
+    text-align: center;
+
+    width: 50%;
+    margin:auto;
+    padding: 0;
+    background-color: goldenrod;
+}
+
+nav {
+    background-color:gold;
+    margin:auto;
+    padding:0;
+    width: 50%;
+}
+
+nav>ul {
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+
+    margin:10px auto;
+    width: 300px;
+}
+
+li {
+    margin : 10px;
+}
+
+/*************************liste des aliments ************************/
+app-aliment-list {
+    color:white;
+}
+
+app-aliment-list body {
+
+    background-color: dimgrey;
+    width: 50%;
+    margin:auto;
+}
+
+app-aliment-list h1 {
+
+    margin:0;
+    text-align: center;
+    /*background-color:dimgray;*/
+}
+
+app-aliment-list h2 {
+
+
+    text-align: center;
+    background-color: grey;
+    margin:0;
+
+}
+
+form {
+    margin:auto;
+    background-color: grey;
+    /* width: 400px;*/
+}
+
+
+.elt {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.elt input {
+margin-left: auto;
+}
+
+button {
+    display: block;
+    margin:auto;
+}
+
+
+
+table {
+    border-collapse: collapse;
+
+    margin: 15px auto;
+    background-color: grey;
+}
+
+table, th, td {
+    border: 1px solid goldenrod;
+  }
+
+  td>button {
+      margin : 4px;
+  }
+
+
+  /*************************calculator ************************/
+
+  app-calculator body {
+
+    background-color: dimgrey;
+    width: 50%;
+    margin:auto;
+    
+}
+
+
