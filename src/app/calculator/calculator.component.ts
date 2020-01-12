@@ -33,6 +33,12 @@ export class CalculatorComponent implements OnInit {
    }
 
   ngOnInit() {
+    let tot = 0;
+    for (let ind=0; ind < this.portionService.portions.length; ind++){
+     /*console.log(this.portionService.portions[ind])*/
+        tot= tot + this.portionService.portions[ind].cg;
+    }
+    this.portionTotal = Math.round(tot*100)/100;
   }
 
   onSubmite(a) {
@@ -50,7 +56,7 @@ export class CalculatorComponent implements OnInit {
       name : a.nameP.name,
       ig : a.nameP.ig,
       carbs : a.nameP.carbs,
-      cg : a.weightP/100*a.nameP.ig
+      cg : Math.round((a.weightP/100*a.nameP.ig)*100)/100
     }
 
   /*paragraphe 1 ou paragraphe 2 marche */
@@ -73,7 +79,6 @@ export class CalculatorComponent implements OnInit {
   console.log(this.portionTotal);
   */
 
- 
   /*
   console.log(this.portionList.length);
   console.log(this.portionList);
@@ -85,7 +90,7 @@ export class CalculatorComponent implements OnInit {
       tot= tot + this.portionService.portions[ind].cg;
   }
   
-  this.portionTotal = tot;
+  this.portionTotal = Math.round(tot*100)/100;
   console.log(this.portionTotal);
 
   }
@@ -99,7 +104,7 @@ export class CalculatorComponent implements OnInit {
     /*console.log(this.portionService.portions[ind])*/
        tot= tot + this.portionService.portions[ind].cg;
    }
-   this.portionTotal = tot;
+   this.portionTotal = Math.round(tot*100)/100;
 
   }
 
