@@ -9,6 +9,7 @@ app-top-bar h1 {
     margin:auto;
     padding: 0;
     background-color: goldenrod;
+
 }
 
 nav {
@@ -16,6 +17,9 @@ nav {
     margin:auto;
     padding:0;
     width: 50%;
+
+    border : solid 1px gold;
+
 }
 
 nav>ul {
@@ -109,6 +113,8 @@ app-aliment-list table, th, td {
     background-color: dimgrey;
     width: 50%;
     margin:auto;
+
+    border : solid 1px dimgrey;
 }
 
 app-calculator .section1, .section2 {
@@ -119,6 +125,8 @@ app-calculator .section1, .section2 {
     margin-right:20px;
     margin-top:20px;
     margin-bottom: 20px;
+
+
   }
 
 app-calculator h2 {
