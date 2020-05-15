@@ -11,16 +11,7 @@ export class PortionService {
 
   portionTotal = 0;
 
-    /*
-  portions : Portion[] = [
-    {
-      "name": "test",
-      "ig": 0,
-      "carbs": 0.0,
-      "cg" : 0.0
-    }
-  ]
-  */
+
 
   constructor() { }
 }

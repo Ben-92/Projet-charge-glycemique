@@ -33,79 +33,50 @@ export class CalculatorComponent implements OnInit {
    }
 
   ngOnInit() {
-    let tot = 0;
-    for (let ind=0; ind < this.portionService.portions.length; ind++){
-     /*console.log(this.portionService.portions[ind])*/
-        tot= tot + this.portionService.portions[ind].cg;
-    }
-    this.portionTotal = Math.round(tot*100)/100;
+
+    this.calculateTotal();
+    
   }
 
-  onSubmite(a) {
-/*
-    console.warn(a);
-    console.warn(a.nameP);
-    console.warn(a.weightP);
+  onSubmite(portionForm) {
 
-    console.warn(a.nameP.name);
-    console.warn(a.nameP.ig);
-    console.warn(a.nameP.carbs);
-    */
+    let carbsProportion = Math.round(((portionForm.nameP.carbs/100)*portionForm.weightP)*100)/100;
+    let calculatedGly = Math.round(((carbsProportion*portionForm.nameP.ig)/100)*100)/100;
 
     let portionProto = {
-      name : a.nameP.name,
-      ig : a.nameP.ig,
-      carbs : a.nameP.carbs,
-      cg : Math.round((a.weightP/100*a.nameP.ig)*100)/100
+      name : portionForm.nameP.name,
+      ig : portionForm.nameP.ig,
+      carbs : carbsProportion,
+      cg : calculatedGly
     }
 
-  /*paragraphe 1 ou paragraphe 2 marche */
 
-    /* paragraphe 1*/
+
     const portionObject = Object.create(portionProto);
-    /*console.log(portionObject);*/
+
     this.portionList.push(portionObject); 
     
-  
-  /*ici paragraphe 2
-  this.portionList.push(portionProto);
-  */
 
-    /* ci-dessous autre option du paragraphe 2
-   this.portionService.portions.push(portionProto);
-   */
+    this.calculateTotal();
 
-  /*
-  console.log(this.portionTotal);
-  */
-
-  /*
-  console.log(this.portionList.length);
-  console.log(this.portionList);
-  */
-
-  let tot = 0;
-  for (let ind=0; ind < this.portionService.portions.length; ind++){
-   /*console.log(this.portionService.portions[ind])*/
-      tot= tot + this.portionService.portions[ind].cg;
-  }
-  
-  this.portionTotal = Math.round(tot*100)/100;
-  console.log(this.portionTotal);
 
   }
 
   deletePortion(j){
       
-   this.portionService.portions.splice(j,1)
+   this.portionService.portions.splice(j,1);
 
-   let tot = 0;
-   for (let ind=0; ind < this.portionService.portions.length; ind++){
-    /*console.log(this.portionService.portions[ind])*/
-       tot= tot + this.portionService.portions[ind].cg;
-   }
-   this.portionTotal = Math.round(tot*100)/100;
+   this.calculateTotal();
 
+  }
+
+  calculateTotal(){
+    let tot = 0;
+    for (let ind=0; ind < this.portionService.portions.length; ind++){
+
+        tot= tot + this.portionService.portions[ind].cg;
+    }
+    this.portionTotal = Math.round(tot*100)/100;
   }
 
 }
